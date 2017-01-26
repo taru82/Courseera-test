@@ -1,23 +1,27 @@
-var student{
-  name: ""
+var student = {
+  name: "",
   type: "student"
 };
 
-document.addEventListener(DOMContentLoaded, contentLoaded);
+document.addEventListener('DOMContentLoaded', contentLoaded);
 
-function contentLoaded() {
-  document.getElementById('name').addEventListener("keyup", keyup)
-
+function contentLoaded(event) {
+  document.getElementById('name').addEventListener("keyup", keyUp);
 }
 
-function calculateNumberOutput() {
-student.name=  document.getElementById('name')
-var totalNumber=0
-for (var i = 0; i < student.name.length; i++) {
-      totalNumber+ = student.name.charcodeAt(i);
+function keyUp(event) {
+  calculateNumericOutput();
 }
 
-var output = "Total Numeric value of person's name enter" + totalNumber;
-document.getElementById(output).innerText = output;
+function calculateNumericOutput() {
+  student.name = document.getElementById('name').value;
 
+  var totalNameValue = 0;
+  for (var i = 0; i < student.name.length; i++) {
+    totalNameValue += student.name.charCodeAt(i);
+  }
+
+  // Insert result into page
+  var output = "Total Numeric value of person's name is " + totalNameValue;
+  document.getElementById('output').innerText = output;
 }
