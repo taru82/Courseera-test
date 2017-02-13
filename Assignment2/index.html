@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="container">
+    <h1>Shopping List Check Off</h1>
+
+    <div class="row">
+
+      <!-- To Buy List -->
+      <div class="col-md-6" ng-controller='ShoppingListAddController as itemAdder'>
+       <h2>To Buy:</h2>
+        <div class="emptyMessage" ng-show="itemAdder.items.length==0">Everything is bought!</div>
+
+        <ol>
+      <li ng-repeat="item in itemAdder.items">
+      Buy: {{ item.quantity }} of {{ item.name }}
+        <button ng-click="itemAdder.addItem($index);"><span class="glyphicon glyphicon-ok"></span>Bought</button>
+      </li>
+    </ol>
+    </div>
+
+    <div class="col-md-6" ng-controller='ShoppingListShowController as showList'>
+      <h1> Already Bought List </h1>
+      <div class="emptyMessage" ng-hide="showList.items.length>0">Nothing bought yet.</div>
+
+      <ol>
+        <li ng-repeat="item in showList.items">
+        Brought: {{ item[0].quantity }} of {{ item[0].name }}
+        </li>
+
+      </ol>
+    </div>
+  </body>
+</html>
