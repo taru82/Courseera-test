@@ -35,7 +35,6 @@ function MenuCategoriesController(MenuCategoriesService) {
     var promise = MenuCategoriesService.getMenuForCategory(shortName);
     promise.then(function (response) {
    menu.descriptions = response.data;
-      // for(var x in menu.descriptions){
       var foundFlag = false;
 menu.outs = [];
 for(var i = 0; i < menu.descriptions.menu_items.length; i++){
