@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='MenuCategoriesApp'>
+  <head>
+    <title>Narrow Down Your Menu Choice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+
+    <h1>Narrow Down Your Chinese Menu Choice</h1>
+    <div class="form-group" ng-controller='MenuCategoriesController as menu'>
+      <h3>List of Menu Categories</h3>
+      <input type="text" ng-model="menu.searchTerm" placeholder="search term"class="form-control">
+      <div class="form-group narrow-button">
+      <button class="btn btn-primary" ng-model="menu.searchString"
+      ng-click="menu.logMenuItems(category.short_name);">Narrow It Down For Me!</button>
+      <ol>
+        <li ng-repeat="n in menu.message track by $index">
+          {{ n}}
+        <button ng-hide="menu.message[0].includes('Item not found')" class="btn btn-primary"  ng-click = "menu.removeItem($index)">I don't want this</button>
+        </li>
+      </ol>
+      </div>
+
+  </body>
+</html>
