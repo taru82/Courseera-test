@@ -3,7 +3,7 @@
 
     angular.module('MenuApp')
         .service('MenuAppService', MenuAppService)
-        .constant('ApiBasePath', "http://davids-restaurant.herokuapp.com");
+        .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
     MenuAppService.$inject = ['$http', 'ApiBasePath','$rootScope']
     function MenuAppService($http, ApiBasePath, $rootScope) {
