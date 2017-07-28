@@ -3,7 +3,7 @@
 
     angular.module('public')
         .controller('signUpController', signUpController);
-
+//Sign up controller
     signUpController.$inject = ['ApiPath', 'MenuService'];
     function signUpController(ApiPath, MenuService)
     {
