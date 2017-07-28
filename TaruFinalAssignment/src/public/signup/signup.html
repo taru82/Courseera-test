@@ -1,0 +1,95 @@
+<div class="container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <fieldset>
+        <h1>Sign Up</h1><br>
+        <form name='regForm' id="signupbutton">
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="control-label">First Name </label>
+                </div>
+                <div class="col-md-6">
+                    <input  class="form-control" type="text" name="firstName" placeholder="Enter your first name"
+                            ng-model="reg.user.firstName"
+                            required minlength="4"
+                            ng-maxlength="10">
+                    <span
+                            ng-if="(regForm.firstName.$error.minlength || regForm.firstName.$error.required) && regForm.firstName.$touched">
+           Please enter at least 4 minimum character of first name
+          </span>
+                    <span ng-if="regForm.firstName.$error.maxlength && regForm.username.$touched">
+            First name must not be longer than 10 characters
+          </span>
+
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="control-label"> Last Name </label>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="lastName" placeholder="Enter your last name"
+                           ng-model="reg.user.lastName"
+                           required>
+                    <span
+                            ng-if="(regForm.lastName.$error.required) && regForm.lastName.$touched">
+           Please enter last name
+          </span>
+                </div><br>
+            </div><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="control-label">Email </label>
+                </div>
+                <div  class="col-md-6">
+                    <input class="form-control" type="email" name="email" placeholder="Email"
+                           ng-model="reg.user.email"
+                           required>
+                    <span class="ng-scope" ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="control-label"> Phone </label>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" type="text" name="phone" placeholder="Phone ###-###-####"
+                           ng-model="reg.user.phone"
+                           name="phone"
+                           pattern="(\d{3})-(\d{3})-(\d{4})">
+                    <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <label class="control-label"> Favourite Menu Item</label>
+                </div>
+                <div class="col-md-6">
+
+        <input class="form-control" type="text"
+                  ng-model="reg.user.favoriteDish"
+                  name="favoriteDish"
+                  placeholder="Please enter your favourite menu items">
+
+                    <span ng-if="regForm.favoriteDish.$invalid && regForm.favoriteDish.$touched">
+            </span>
+                </div>
+            </div>
+
+            <button id="submitColor"
+                    ng-disabled="regForm.$invalid"
+                    ng-click="signUpController.submit()">Submit</button>
+            <div ng-if="signUpController.wrongDish">Please try again this item number does not exist in our menu!!</div>
+
+
+            <div id="info" ng-if="signUpController.valid">
+                Thank you for your registration. We saved your information in our database!!
+            </div>
+        </form>
+
+    </fieldset>
+</div>
+</div>
