@@ -1,0 +1,31 @@
+<div class="container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <fieldset>
+        <h1>My Information</h1><br>
+        <form name='regForm' id="myInfo">
+
+            <div class="ng-scope" ng-if="!myInfoCtrl.notSigned">
+                <div class="row">
+                    <div class="col-md-12 ng-binding">First Name: {{myInfoCtrl.userInfo.firstName}}</div>
+                    <div class="col-md-12 ng-binding">Last Name: {{myInfoCtrl.userInfo.lastName}}</div>
+
+                    <div class="col-md-12 ng-binding">Email: {{myInfoCtrl.userInfo.email}}</div>
+
+                    <div class="col-md-12 ng-binding">Phone: {{myInfoCtrl.userInfo.phone}}</div>
+
+                    <div class="col-md-12 ng-binding">Fvorite Dish: {{myInfoCtrl.userInfo.favoriteDish}}
+                        <img class="img-responsive" width="250" height="150"
+                             ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.userInfo.favoriteDish}}.jpg"
+                             alt="{{myInfoCtrl.userInfo.favoriteDish}}">
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div ng-if="myInfoCtrl.notSigned">
+                Not Signed Up Yet. Please <a ui-sref="public.signup" href="#/signUp"> Sign Up Now!!</a></div>
+        </form>
+
+    </fieldset>
+</div>
+</div>
